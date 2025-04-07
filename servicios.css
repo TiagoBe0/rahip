@@ -46,21 +46,36 @@
     font-style: normal;
     font-size: 4rem;
   }
+  .hero {
+    columns: #fff;
+    display: flex;
+    justify-content: center;  /* centra horizontalmente */
+    align-items: center;      /* centra verticalmente */
+    text-align: center;      
+  }
   
   /* Body */
+ 
   body {
-    background-color:var(--bg-color);
+        background-color: var(--bg-color)!important;
+    background-color: var(--bg-color);
     background-image: url('layaout-web/archivos/textura-fondo.svg');
-
+    background-repeat: repeat;
+    /* Resto de propiedades... */
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
     font-family: Arial, sans-serif;
     font-weight: 300;
-    background-size: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
   }
+  
+  
   :root {
-    --bg-color: #663399;
+    --bg-color: #4a1580;
     --text-color: black;
     --link-color: black;
     --nav-bg: #1a1725;
@@ -76,11 +91,6 @@
     --footer-bg: #111;
   }
   
-  body {
-    background-color: var(--bg-color);
-    
-    color: var(--text-color);
-  }/* ... */
 
 body.dark-theme header nav {
   background-color: #333;
@@ -106,8 +116,125 @@ body.dark-theme .footer-left p {
 body.dark-theme .nav-list a {
   color: #fff;
 }
+.nosotros {
+  position: relative;
+  z-index: 1;
+}
 
-  
+.bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  font-family: 'Lilita One', cursive;
+  color: rgba(255, 255, 255, 0.04); /* efecto watermark */
+  text-transform: uppercase;
+  letter-spacing: 2rem;
+  z-index: 0;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-item {
+  position: relative;
+  width: 180px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.gallery-text span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
+
+.rahip-info h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.rahip-info p {
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.6;
+}
+
+.nosotros {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 6rem 1rem;
+  overflow: hidden;
+}
+
+.nosotros p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+}
+
+.nosotros img {
+  max-width: 100%;
+  height: auto;
+  z-index: 2;
+  position: relative;
+}
+
+/* Texto gigante de fondo */
+.bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  color: rgba(255, 255, 255, 0.05); /* Súper suave, estilo marca de agua */
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-top: 11.5rem;
+  user-select: none;
+}
+
   .brand {
     margin-right: auto;
   }
@@ -150,6 +277,20 @@ body.dark-theme .nav-list a {
     height: 100%;
     padding: 0 0.5rem;
   }
+  .nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #fff;
+  }
+  
+  .nosotros p {
+    max-width: 800px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
   
   .user {
     margin-left: 1rem;
@@ -176,8 +317,7 @@ body.dark-theme .nav-list a {
     flex-wrap: wrap;
     margin: 0 auto;
   }
-  
-  /* Menú de navegación (Header) */
+
   header {
     padding: 0;
   }
@@ -202,10 +342,7 @@ body.dark-theme .nav-list a {
   
   /* Contenedor de la galería */
   .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    gap: 1rem;
-    max-width: 1500px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 1rem;
   }
@@ -229,7 +366,7 @@ body.dark-theme .nav-list a {
   
   /* Footer */
   .footer {
-    background-color: rgba(50, 7, 90, 0.89);
+    background-color: rgba(50, 7, 90, 0.983);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -306,11 +443,13 @@ body.dark-theme .nav-list a {
     }
     .montserrat {
       font-size: 2rem;
+      color: #fff;
     }
     .footer-left p {
       font-size: 1rem;
     }
   }
+
   @media (max-width: 480px) {
     .lilita-one-regular {
       font-size: 3rem;
@@ -359,10 +498,35 @@ body.dark-theme .nav-list a {
     overflow-wrap: break-word;
     word-wrap: break-word;
   }
+  .gallery-contaisner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  #carouselExample {
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+  
+  .carousel-inner img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    .carousel-inner img {
+      height: 250px;
+    }
+  }
   
   .banner h1,
   .banner p {
     max-width: 100%;
+    text-align: center;
+    font-size: 20px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     padding: 0 1rem;
@@ -406,14 +570,14 @@ body.dark-theme nav {
   background-color: #2c2c2c; /* gris oscuro */
 }
 body.dark-theme nav a {
-  color: white;
+  color: rgb(36, 33, 33);
 }
 #theme-toggle {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   background-color: var(--boton-fondo, #720599cc);
-  color: var(--boton-icono, #111);
+  color: var(--boton-icono, #0a0303);
   border: none;
   border-radius: 50%;
   padding: 0.8rem;
@@ -426,7 +590,7 @@ body.dark-theme nav a {
 }
 
 #theme-toggle:hover {
-  background-color: var(--boton-hover, #42097c);
+  background-color: var(--boton-hover, #42097c9a);
   transform: scale(1.05);
 }
 
@@ -443,7 +607,7 @@ body.dark-theme #theme-toggle {
   width: 60px;
   height: 60px;
   margin-bottom: 70px;
-  background-color: #25D366;
+  background-color: #25d3658a;
   border-radius: 50%;
   display: flex;
   align-items: center;
