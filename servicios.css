@@ -565,6 +565,37 @@ nav {
   transition: background-color 0.6s ease;
 }
 
+.servicios-section {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.background-text {
+  font-size: 10rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.05); /* texto como marca de agua */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.servicios-gallery {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+
+
 /* Estilo para tema oscuro */
 body.dark-theme nav {
   background-color: #2c2c2c; /* gris oscuro */
@@ -658,9 +689,10 @@ body.dark-theme #theme-toggle {
     width: 120px; /* tamaño reducido para móviles */
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 68px) {
 
   /* ==== LOGOS ==== */
+
   .logos-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -674,13 +706,14 @@ body.dark-theme #theme-toggle {
 
   /* ==== GALERÍA ==== */
   .gallery-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, .5fr);
     padding: 0.5rem;
     gap: 0.5rem;
+    max-width: 250px;
   }
 
   .gallery-item img {
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
     border-radius: 20px;
   }
@@ -716,11 +749,22 @@ body.dark-theme #theme-toggle {
   .footer {
     flex-direction: column;
     text-align: center;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 2;
   }
-
+  .footer {
+    padding: 0.5rem 1rem;
+  }
   .footer-left p {
     font-size: 1rem;
+  }
+  .social-icon img {
+    width: 28px;
+  }
+  
+  .footer-left p {
+    font-size: 10px;
     margin-bottom: 0.5rem;
   }
 
@@ -738,3 +782,4 @@ body.dark-theme #theme-toggle {
     width: 30px;
   }
 }
+

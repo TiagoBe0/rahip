@@ -519,6 +519,8 @@ body.dark-theme #theme-toggle {
     width: 90%;
     margin: 0 auto;
     border-radius: 20px;
+    background: rgb(157,34,195);
+    background: linear-gradient(0deg, rgba(157,34,195,1) 17%, rgba(217,38,151,0.7861344366848302) 99%, rgba(238,224,27,1) 100%, rgba(238,224,27,0.6544817756204044) 100%); 
   }
 
   /* ==== NAVBAR ==== */
