@@ -1,3 +1,49 @@
+/* Sticky‑footer base (si no lo tienes ya) */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper > footer {
+  margin-top: auto;
+}
+
+/* La sección de Calificanos */
+.calificanos-form .intro {
+  font-size: 1.25rem;
+}
+
+/* Texto de la pregunta */
+.calificanos-form .question {
+  font-size: 1rem;
+}
+
+/* Estrellas de rating */
+.star-rating {
+  direction: rtl;     /* para que al hover coloree desde la estrella correspondiente hacia la izquierda */
+}
+.star-rating input {
+  display: none;      /* oculto */
+}
+.star-rating label {
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: color .2s;
+  padding: 0 .2rem;
+}
+/* colorea las estrellas “adelante” de la seleccionada y la propia */
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #fff;
+}
+
+/* Placeholder cursiva */
+.calificanos-form .form-control::placeholder {
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
 /* Reset básico */
 * {
     margin: 0;
@@ -9,6 +55,53 @@
     margin: 0;
     padding: 0;
   }
+  /* Sticky‑footer base (si no lo tienes ya) */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper > footer {
+  margin-top: auto;
+}
+
+/* La sección de Calificanos */
+.calificanos-form .intro {
+  font-size: 1.25rem;
+}
+
+/* Texto de la pregunta */
+.calificanos-form .question {
+  font-size: 1rem;
+}
+
+/* Estrellas de rating */
+.star-rating {
+  direction: rtl;     /* para que al hover coloree desde la estrella correspondiente hacia la izquierda */
+}
+.star-rating input {
+  display: none;      /* oculto */
+}
+.star-rating label {
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: color .2s;
+  padding: 0 .2rem;
+}
+/* colorea las estrellas “adelante” de la seleccionada y la propia */
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #fff;
+}
+
+/* Placeholder cursiva */
+.calificanos-form .form-control::placeholder {
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
+
   
   .wrapper {
     position: relative; 
