@@ -15,28 +15,31 @@
 <body>
   <div class="wrapper">
     <!-- Cabecera -->
-    <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="brand">
-            <a href="index.html">
-              <img src="layaout-web/archivos/rahip-logo-blanco.svg" alt="Marca" width="100px" class="brand-icon">
-            </a>
-          </li>
-          <li class="nav-item"><a href="nosotros.html">NOSOTROS</a></li>
-          <li class="nav-item"><a href="servicios.html">SERVICIOS</a></li>
-          <li class="nav-item"><a href="brief.html">BRIEF</a></li>
-          <li class="nav-item"><a href="calificanos.html">CALIFICANOS</a></li>
-          <li class="nav-item"><a href="contacto.html">CONTACTO</a></li>
-      
-          
-          <li class="user">
-            <a href="login.html">
-              <img src="layaout-web/archivos/base-datos-icono.svg" alt="Usuario" class="user-icon">
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <header>  <nav class="navbar">
+      <!-- Marca -->
+      <a href="index.html" class="brand">
+        <img src="layaout-web/archivos/rahip-logo-blanco.svg" alt="Marca" width="100" class="brand-icon">
+      </a>
+  
+      <!-- Botón Hamburguesa -->
+      <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">
+        &#9776; <!-- código Unicode para “≡” -->
+      </button>
+  
+      <!-- Menú -->
+      <ul class="nav-list">
+        <li class="nav-item"><a href="nosotros.html">NOSOTROS</a></li>
+        <li class="nav-item"><a href="servicios.html">SERVICIOS</a></li>
+        <li class="nav-item"><a href="brief.html">BRIEF</a></li>
+        <li class="nav-item"><a href="calificanos.html">CALIFICANOS</a></li>
+        <li class="nav-item"><a href="contacto.html">CONTACTO</a></li>
+        <li class="user">
+          <a href="login.html">
+            <img src="layaout-web/archivos/base-datos-icono.svg" alt="Usuario" class="user-icon">
+          </a>
+        </li>
+      </ul>
+    </nav>
     </header>
     <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
     <!-- Contenido principal -->
@@ -89,14 +92,30 @@
     </footer>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const button = document.getElementById('theme-toggle');
-      body.classList.toggle('dark-theme');
-      button.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1) Toggle menú hamburguesa
+    const navToggle = document.getElementById('nav-toggle');
+    const navList   = document.querySelector('.nav-list');
+    if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+      });
     }
-  </script>
+
+    // 2) Toggle tema claro/oscuro
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const body = document.body;
+        body.classList.toggle('dark-theme');
+        // Cambiar ícono según estado
+        themeToggle.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
+      });
+    }
+  });
+</script>
+
   
 </body>
 </html>

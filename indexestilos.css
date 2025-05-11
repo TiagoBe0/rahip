@@ -117,38 +117,182 @@ body.dark-theme .nav-list a {
     width: auto;
     max-width: 100%;
   }
+/* ==============================
+   Variables globales (ajusta colores)
+   ============================== */
+   :root {
+    --nav-bg: #333;      /* Fondo de la navbar */
+    --nav-color: #fff;   /* Color de texto/iconos */
+  }
   
+  /* ==============================
+     Contenedor de navegación
+     ============================== */
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+  
+  /* ==============================
+     Logo / marca
+     ============================== */
+  .brand-icon {
+    width: 100px;
+  }
+  
+  /* ==============================
+     Botón “hamburguesa” (por defecto oculto)
+     ============================== */
+  .nav-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--nav-color);
+    cursor: pointer;
+    padding: 0 1rem;
+  }
+  
+/* ==============================
+   Variables globales (ajusta colores)
+   ============================== */
+   :root {
+    --nav-bg: #4b0082; /* reemplaza por tu hex o rgb favorito */
+    --nav-color: #fff;
+  }
+  
+  /* ==============================
+     Contenedor de navegación
+     ============================== */
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-bg); /* ahora será #4b0082 sólido */
+    /* resto de propiedades… */
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 20;
+  }
+  
+  /* ==============================
+     Logo / marca
+     ============================== */
+  .brand-icon {
+    width: 100px;
+  }
+  
+  /* ==============================
+     Botón “hamburguesa” (por defecto oculto)
+     ============================== */
+  .nav-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--nav-color);
+    cursor: pointer;
+    padding: 0 1rem;
+  }
+  
+  /* ==============================
+     Lista de navegación (escritorio)
+     ============================== */
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    align-items: center;
+  }
+  
+  /* Bloque a la derecha (si aplicas .nav-right) */
   .nav-right {
     margin-left: auto;
     display: flex;
     align-items: center;
   }
   
-  .nav-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
+  /* Cada ítem */
   .nav-item {
     padding: 0 1rem;
     position: relative;
   }
   
+  /* Separador entre ítems */
   .nav-item:not(:last-of-type) {
-    border-right: 1px solid #fff;
+    border-right: 1px solid var(--nav-color);
   }
   
+  /* Enlaces dentro de los ítems */
   .nav-list li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--nav-color);
     text-decoration: none;
     font-weight: bold;
     height: 100%;
     padding: 0 0.5rem;
+  }
+  
+  /* Icono de usuario */
+  .user-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* ==============================
+     Responsive: móvil (<=768px)
+     ============================== */
+  @media (max-width: 768px) {
+  
+    /* Mostrar botón hamburguesa */
+    .nav-toggle {
+      display: block;
+    }
+  
+    /* Ocultar menú por defecto */
+    .nav-list {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      /* si quieres un fondo semitransparente en el desplegable: */
+      /* background-color: rgba(0,0,0,0.7); */
+      background-color: var(--nav-bg);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 1rem 0;
+      z-index: 10;
+    }
+  
+    /* Mostrar cuando tenga .active */
+    .nav-list.active {
+      display: flex;
+    }
+  
+    /* Ajuste de cada ítem en móvil */
+    .nav-list .nav-item,
+    .nav-list .user {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--nav-color);
+    }
+  }
+  
+  /* ==============================
+     Responsive: escritorio (>768px)
+     ============================== */
+  @media (min-width: 769px) {
+    .nav-list {
+      display: flex !important;
+      position: static;
+      flex-direction: row;
+    }
   }
   
   .user {
